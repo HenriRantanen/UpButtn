@@ -22,41 +22,54 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.components = New System.ComponentModel.Container()
+        Me.Button_Up = New System.Windows.Forms.Button()
+        Me.Button_Down = New System.Windows.Forms.Button()
+        Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.SuspendLayout()
         '
-        'Button1
+        'Button_Up
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 13)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 39)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Up"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button_Up.Font = New System.Drawing.Font("Wingdings", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.Button_Up.Location = New System.Drawing.Point(13, 13)
+        Me.Button_Up.Name = "Button_Up"
+        Me.Button_Up.Size = New System.Drawing.Size(77, 59)
+        Me.Button_Up.TabIndex = 0
+        Me.Button_Up.Text = "á"
+        Me.Button_Up.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.Button_Up.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Button_Down
         '
-        Me.Button2.Location = New System.Drawing.Point(13, 58)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 39)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Down"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button_Down.Font = New System.Drawing.Font("Wingdings", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.Button_Down.Location = New System.Drawing.Point(13, 78)
+        Me.Button_Down.Name = "Button_Down"
+        Me.Button_Down.Size = New System.Drawing.Size(77, 58)
+        Me.Button_Down.TabIndex = 1
+        Me.Button_Down.Text = "â"
+        Me.Button_Down.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Button_Down.UseVisualStyleBackColor = True
+        '
+        'SerialPort
+        '
+        Me.SerialPort.PortName = "COM3"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(278, 244)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(217, 148)
+        Me.Controls.Add(Me.Button_Down)
+        Me.Controls.Add(Me.Button_Up)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.Text = "UpButt'n"
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents Button_Up As Button
+    Friend WithEvents Button_Down As Button
+    Friend WithEvents SerialPort As IO.Ports.SerialPort
 End Class
