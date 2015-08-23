@@ -60,5 +60,6 @@
         ' Set the table to the value that is set on the slider
         setTableHeight(CurrentHeight.Value)
     End Sub
+
 End Class
 
