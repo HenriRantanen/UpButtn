@@ -58,7 +58,7 @@ Partial Class Form1
         Me.Button_Up.Name = "Button_Up"
         Me.Button_Up.Size = New System.Drawing.Size(157, 50)
         Me.Button_Up.TabIndex = 0
-        Me.Button_Up.Text = "Stand"
+        Me.Button_Up.Text = "Stand Up"
         Me.Button_Up.UseVisualStyleBackColor = True
         '
         'Button_Down
@@ -70,7 +70,7 @@ Partial Class Form1
         Me.Button_Down.Name = "Button_Down"
         Me.Button_Down.Size = New System.Drawing.Size(157, 50)
         Me.Button_Down.TabIndex = 1
-        Me.Button_Down.Text = "Sit"
+        Me.Button_Down.Text = "Sit Down"
         Me.Button_Down.UseVisualStyleBackColor = True
         '
         'SerialPort
@@ -239,12 +239,12 @@ Partial Class Form1
         '
         'CurrentHeight
         '
-        Me.CurrentHeight.Location = New System.Drawing.Point(820, 41)
+        Me.CurrentHeight.Location = New System.Drawing.Point(807, 29)
         Me.CurrentHeight.Maximum = 120
         Me.CurrentHeight.Minimum = 67
         Me.CurrentHeight.Name = "CurrentHeight"
         Me.CurrentHeight.Orientation = System.Windows.Forms.Orientation.Vertical
-        Me.CurrentHeight.Size = New System.Drawing.Size(69, 588)
+        Me.CurrentHeight.Size = New System.Drawing.Size(69, 607)
         Me.CurrentHeight.SmallChange = 5
         Me.CurrentHeight.TabIndex = 3
         Me.CurrentHeight.TickFrequency = 5
