@@ -10,26 +10,6 @@
             'Run initialization on startup
             For Each argument As String In My.Application.CommandLineArgs
                 ' Add code here to use the argument. 
-                If CommandLineArgs.First = "up" Then
-
-                    Using com3 As IO.Ports.SerialPort =
-                        My.Computer.Ports.OpenSerialPort("COM3")
-                        com3.WriteLine("d115")
-                    End Using
-
-                    End
-
-                End If
-                If CommandLineArgs.First = "down" Then
-
-                    Using com3 As IO.Ports.SerialPort =
-                        My.Computer.Ports.OpenSerialPort("COM3")
-                        com3.WriteLine("d72")
-                    End Using
-
-                    End
-                End If
-
             Next
         End Sub
     End Class

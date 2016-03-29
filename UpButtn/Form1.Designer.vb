@@ -28,9 +28,14 @@ Partial Class Form1
         Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.CurrentHeightText = New System.Windows.Forms.Label()
+        Me.HeightLabel = New System.Windows.Forms.Label()
+        Me.Preset2 = New System.Windows.Forms.Button()
+        Me.Preset1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.connectButton = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,6 +46,8 @@ Partial Class Form1
         Me.SittingHeight = New System.Windows.Forms.NumericUpDown()
         Me.COM_Port = New System.Windows.Forms.ComboBox()
         Me.CurrentHeight = New System.Windows.Forms.TrackBar()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -90,6 +97,10 @@ Partial Class Form1
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.CurrentHeightText)
+        Me.TabPage1.Controls.Add(Me.HeightLabel)
+        Me.TabPage1.Controls.Add(Me.Preset2)
+        Me.TabPage1.Controls.Add(Me.Preset1)
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.Button_Up)
         Me.TabPage1.Controls.Add(Me.Label6)
@@ -101,6 +112,48 @@ Partial Class Form1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Smart Desk Controls"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'CurrentHeightText
+        '
+        Me.CurrentHeightText.AutoSize = True
+        Me.CurrentHeightText.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CurrentHeightText.Location = New System.Drawing.Point(41, 305)
+        Me.CurrentHeightText.Name = "CurrentHeightText"
+        Me.CurrentHeightText.Size = New System.Drawing.Size(237, 45)
+        Me.CurrentHeightText.TabIndex = 16
+        Me.CurrentHeightText.Text = "Not Connected"
+        '
+        'HeightLabel
+        '
+        Me.HeightLabel.AutoSize = True
+        Me.HeightLabel.Location = New System.Drawing.Point(35, 295)
+        Me.HeightLabel.Name = "HeightLabel"
+        Me.HeightLabel.Size = New System.Drawing.Size(0, 20)
+        Me.HeightLabel.TabIndex = 15
+        '
+        'Preset2
+        '
+        Me.Preset2.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Preset2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Preset2.Location = New System.Drawing.Point(241, 187)
+        Me.Preset2.Margin = New System.Windows.Forms.Padding(3, 15, 3, 3)
+        Me.Preset2.Name = "Preset2"
+        Me.Preset2.Size = New System.Drawing.Size(157, 50)
+        Me.Preset2.TabIndex = 14
+        Me.Preset2.Text = "Storage"
+        Me.Preset2.UseVisualStyleBackColor = True
+        '
+        'Preset1
+        '
+        Me.Preset1.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Preset1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Preset1.Location = New System.Drawing.Point(39, 187)
+        Me.Preset1.Margin = New System.Windows.Forms.Padding(3, 15, 3, 3)
+        Me.Preset1.Name = "Preset1"
+        Me.Preset1.Size = New System.Drawing.Size(157, 50)
+        Me.Preset1.TabIndex = 13
+        Me.Preset1.Text = "Microwork"
+        Me.Preset1.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -125,6 +178,7 @@ Partial Class Form1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.connectButton)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.Label2)
@@ -141,6 +195,15 @@ Partial Class Form1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Settings"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'connectButton
+        '
+        Me.connectButton.Location = New System.Drawing.Point(202, 279)
+        Me.connectButton.Name = "connectButton"
+        Me.connectButton.Size = New System.Drawing.Size(315, 29)
+        Me.connectButton.TabIndex = 16
+        Me.connectButton.Text = "Connect"
+        Me.connectButton.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -241,7 +304,7 @@ Partial Class Form1
         '
         Me.CurrentHeight.Location = New System.Drawing.Point(807, 29)
         Me.CurrentHeight.Maximum = 120
-        Me.CurrentHeight.Minimum = 67
+        Me.CurrentHeight.Minimum = 62
         Me.CurrentHeight.Name = "CurrentHeight"
         Me.CurrentHeight.Orientation = System.Windows.Forms.Orientation.Vertical
         Me.CurrentHeight.Size = New System.Drawing.Size(69, 607)
@@ -249,6 +312,14 @@ Partial Class Form1
         Me.CurrentHeight.TabIndex = 3
         Me.CurrentHeight.TickFrequency = 5
         Me.CurrentHeight.Value = 72
+        '
+        'Timer1
+        '
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
         '
         'Form1
         '
@@ -292,4 +363,11 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents Preset1 As Button
+    Friend WithEvents Preset2 As Button
+    Friend WithEvents HeightLabel As Label
+    Friend WithEvents connectButton As Button
+    Friend WithEvents CurrentHeightText As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class
